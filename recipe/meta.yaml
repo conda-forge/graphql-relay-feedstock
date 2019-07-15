@@ -1,9 +1,9 @@
 {% set name = "graphql-relay" %}
-{% set version = "0.4.5" %}
+{% set version = "2.0.0" %}
 {% set bundle = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash = "2716b7245d97091af21abf096fabafac576905096d21ba7118fba722596f65db" %}
-{% set build = 1 %}
+{% set hash = "7fa74661246e826ef939ee92e768f698df167a7617361ab399901eaebf80dce6" %}
+{% set build = 0 %}
 
 package:
   name: {{ name|lower }}
