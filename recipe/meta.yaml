@@ -43,7 +43,7 @@ test:
 
 about:
   home: https://github.com/graphql-python/graphql-relay-py
-  license_file: LICENSE
+  license_file: dist/LICENSE
   license: MIT
   license_family: MIT
   summary: 'Relay implementation for Python'
