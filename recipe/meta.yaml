@@ -1,46 +1,49 @@
 {% set name = "graphql-relay" %}
 {% set version = "2.0.0" %}
-{% set bundle = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash = "7fa74661246e826ef939ee92e768f698df167a7617361ab399901eaebf80dce6" %}
-{% set build = 0 %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ bundle }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  {{ hash_type }}: {{ hash }}
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: 7fa74661246e826ef939ee92e768f698df167a7617361ab399901eaebf80dce6
+    folder: dist
+  - url: https://github.com/graphql-python/{{ name }}-py/archive/v{{ version }}.tar.gz
+    sha256: 87164f7997ce9c1e8492730683f649d76a01f150706711bafe935e14941217a7
+    folder: src
 
 build:
   noarch: python
-  number: {{ build }}
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 0
+  script: cd dist && {{ PYTHON }} -m pip install --no-deps .
 
 requirements:
   host:
     - pip
     - python
-    - setuptools
-
   run:
     - python
-    - six >=1.10.0
-    - graphql-core >=0.5.0
-    - promise >=0.4.0
+    - six >=1.12
+    - graphql-core >=2.2,<3
+    - promise >=2.2,<3
 
 test:
+  source_files:
+    - src/tests
+  requires:
+    - pytest-cov
   imports:
     - graphql_relay
     - graphql_relay.connection
     - graphql_relay.mutation
     - graphql_relay.node
+  commands:
+    - cd src && pytest --cov graphql_relay
 
 about:
   home: https://github.com/graphql-python/graphql-relay-py
-  license_file: {{ RECIPE_DIR }}/LICENSE
+  license_file: LICENSE
   license: MIT
   license_family: MIT
   summary: 'Relay implementation for Python'
@@ -49,3 +52,4 @@ about:
 extra:
   recipe-maintainers:
     - pmlandwehr
+    - bollwyvl
