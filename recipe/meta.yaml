@@ -1,5 +1,5 @@
 {% set name = "graphql-relay" %}
-{% set version = "2.0.0" %}
+{% set version = "2.0.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/graphql-python/{{ name }}-py/archive/v{{ version }}.tar.gz
-  sha256: 87164f7997ce9c1e8492730683f649d76a01f150706711bafe935e14941217a7
+  sha256: e19101a3d19e921150c70a0711aaa303b8a7c3d55dece178561738520117e382
 
 build:
   noarch: python
