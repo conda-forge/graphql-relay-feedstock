@@ -12,32 +12,36 @@ source:
 build:
   noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install -vv .
+  script:
+    - python -c '__import__("os").unlink("pyproject.toml")'
+    - {{ PYTHON }} -m pip install -vv .
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6,<4.0.0a0
   run:
-    - python
-    - six >=1.12
-    - graphql-core >=2.2,<3
-    - promise >=2.2,<3
+    - python >=3.6,<4.0.0a0
+    - graphql-core >=3.0.0
 
 test:
+  source_files:
+    - tests
   requires:
-    - pytest-cov
+    - pytest-cov >=2.8,<3
+    - pytest-describe >=0.12,<1
+    - pytest-asyncio >=0.10,<1
   imports:
     - graphql_relay
   commands:
-    - pytest --pyargs graphql_relay --cov graphql_relay
+    - pytest --cov graphql_relay
 
 about:
   home: https://github.com/graphql-python/graphql-relay-py
   license_file: LICENSE
   license: MIT
   license_family: MIT
-  summary: 'Relay implementation for Python'
+  summary: 'Relay library for graphql-core'
   dev_url: https://github.com/graphql-python/graphql-relay-py
 
 extra:
