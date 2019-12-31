@@ -7,7 +7,7 @@ Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
-Summary: Relay implementation for Python
+Summary: Relay library for graphql-core
 
 
 
