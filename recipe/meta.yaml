@@ -20,21 +20,27 @@ requirements:
   host:
     - pip
     - python >=3.6,<4.0.0a0
+    - poetry-core >=1,<2
   run:
     - python >=3.6,<4.0.0a0
-    - graphql-core >=3.0.0
+    - graphql-core >=3.1,<4
+    - typing_extensions >=3.6.2,<4
 
 test:
   source_files:
     - tests
   requires:
-    - pytest-cov >=2.8,<3
-    - pytest-describe >=0.12,<1
-    - pytest-asyncio >=0.10,<1
+    - pip
+    - pytest >=6.2,<7
+    - pytest-asyncio >=0.14,<1
+    - pytest-cov >=2.11,<3
+    - pytest-describe >=1,<2
+    - pyyaml >=5.4,<6
   imports:
     - graphql_relay
   commands:
-    - pytest --cov graphql_relay
+    - pip check
+    - pytest --cov graphql_relay --no-cov-on-fail --cov-fail-under 91 --cov-report term-missing:skip-covered
 
 about:
   home: https://github.com/graphql-python/graphql-relay-py
@@ -42,7 +48,6 @@ about:
   license: MIT
   license_family: MIT
   summary: Relay library for graphql-core
-  dev_url: https://github.com/graphql-python/graphql-relay-py
 
 extra:
   recipe-maintainers:
