@@ -9,8 +9,6 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/graphql-relay-f
 
 Summary: Relay library for graphql-core
 
-Development: https://github.com/graphql-python/graphql-relay-py
-
 Current build status
 ====================
 
