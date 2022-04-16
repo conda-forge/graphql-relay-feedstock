@@ -1,4 +1,4 @@
-{% set version = "3.1.5" %}
+{% set version = "3.2.0" %}
 
 package:
   name: graphql-relay
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/g/graphql-relay/graphql-relay-{{ version }}.tar.gz
-  sha256: 127f40913f11cb847452ef794931261aae3b222eaaf976f7c8430298534e54d3
+  sha256: 1ff1c51298356e481a0be009ccdff249832ce53f30559c1338f22a0e0d17250c
 
 build:
   noarch: python
